@@ -1,0 +1,247 @@
+{
+  "productos": [
+    {
+      "nombre": "Arcoíris",
+      "categoria": "Tragamonedas",
+      "precio": 7000,
+      "descripcion": "Luces multicolor\nDoble monedero\n55 a 60% de ganancias",
+      "garantia": "1 año de garantía",
+      "foto": "img/productos/arcoiris.webp",
+      "disponible": true
+    },
+    {
+      "nombre": "Big Win",
+      "categoria": "Tragamonedas",
+      "precio": 10000,
+      "descripcion": "Luces multicolor\nCopete bonus\nBilletero\nBandeja inoxidable\n55 a 60% de ganancias",
+      "garantia": "1 año de garantía",
+      "foto": "img/productos/big-win.webp",
+      "disponible": true
+    },
+    {
+      "nombre": "Super Millonario",
+      "categoria": "Tragamonedas",
+      "precio": 9500,
+      "descripcion": "Luces multicolor\nMonedero luminoso\n35 a 40% de ganancias",
+      "garantia": "",
+      "foto": "img/productos/super-millonario.webp",
+      "disponible": true
+    },
+    {
+      "nombre": "Doble Monedero",
+      "categoria": "Tragamonedas",
+      "precio": 7000,
+      "descripcion": "Monedero doble\nPlaca roja Pikachu Plus\n45 a 50% de ganancias",
+      "garantia": "",
+      "foto": "img/productos/doble-monedero.webp",
+      "disponible": true
+    },
+    {
+      "nombre": "Pikachu Plus",
+      "categoria": "Tragamonedas",
+      "precio": 6500,
+      "descripcion": "Luces LED\nBotones luminosos\nPlaca roja Pikachu Plus\n45 a 50% de ganancias",
+      "garantia": "",
+      "foto": "img/productos/pikachu-plus.webp",
+      "disponible": true
+    },
+    {
+      "nombre": "Pikachu Económico",
+      "categoria": "Tragamonedas",
+      "precio": 6000,
+      "descripcion": "Botones luminosos\nTarjeta amarilla\n25 a 30% de ganancias",
+      "garantia": "",
+      "foto": "img/productos/pikachu-economico.webp",
+      "disponible": true
+    },
+    {
+      "nombre": "Fruit King 999",
+      "categoria": "Tragamonedas",
+      "precio": 5300,
+      "descripcion": "La máquina más económica",
+      "garantia": "3 meses de garantía",
+      "foto": "img/productos/fruit-king-999.webp",
+      "disponible": true
+    },
+    {
+      "nombre": "Mini Genie",
+      "categoria": "Tragamonedas",
+      "precio": 10000,
+      "descripcion": "Acepta monedas de 1, 2 o 5 pesos\nTriplay",
+      "garantia": "6 meses de garantía",
+      "foto": "img/productos/mini-genie.webp",
+      "disponible": true
+    },
+    {
+      "nombre": "All Play",
+      "categoria": "Tragamonedas",
+      "precio": 18500,
+      "descripcion": "Reforzada\nDoble monedero\nBilletero\nPantalla de 17 pulgadas",
+      "garantia": "",
+      "foto": "img/productos/all-play.webp",
+      "disponible": true
+    },
+    {
+      "nombre": "Cascada Crazy",
+      "categoria": "Videojuegos",
+      "precio": 17500,
+      "descripcion": "Luz LED\nMúsica\nCambio de dificultad\nFrente de fierro",
+      "garantia": "1 año de garantía",
+      "foto": "img/productos/cascada-crazy.webp",
+      "disponible": true
+    },
+    {
+      "nombre": "One Touch 64 en 1",
+      "categoria": "Videojuegos",
+      "precio": 10500,
+      "descripcion": "Luces LED\nMarco luminoso\nTriplay",
+      "garantia": "6 meses de garantía",
+      "foto": "img/productos/one-touch-64-en-1.webp",
+      "disponible": true
+    },
+    {
+      "nombre": "Pandora 32 pulgadas",
+      "categoria": "Videojuegos",
+      "precio": 13500,
+      "descripcion": "Versión 25 en 1: $14,500",
+      "garantia": "",
+      "foto": "img/productos/pandora-32-pulgadas.webp",
+      "disponible": true
+    },
+    {
+      "nombre": "Tablero Pandora",
+      "categoria": "Videojuegos",
+      "precio": 5000,
+      "descripcion": "Tipo mando\nControles de uso rudo\nCréditos programables",
+      "garantia": "",
+      "foto": "img/productos/tablero-pandora.webp",
+      "disponible": true
+    },
+    {
+      "nombre": "Mini Peluchera",
+      "categoria": "Garras y peluches",
+      "precio": 9000,
+      "descripcion": "Luz LED\nCon base\nPrimera ronda de peluches gratis",
+      "garantia": "",
+      "foto": "img/productos/mini-peluchera.webp",
+      "disponible": true
+    },
+    {
+      "nombre": "Magic Clip",
+      "categoria": "Garras y peluches",
+      "precio": 15000,
+      "descripcion": "Luz y sonido\nBilletero\nBase gratis\nPrimera ronda de peluches",
+      "garantia": "",
+      "foto": "img/productos/magic-clip.webp",
+      "disponible": true
+    },
+    {
+      "nombre": "Mini Doll Panda",
+      "categoria": "Garras y peluches",
+      "precio": 15500,
+      "descripcion": "Luces LED\nBotones luminosos\nCon base integrada",
+      "garantia": "",
+      "foto": "img/productos/mini-doll-panda.webp",
+      "disponible": true
+    },
+    {
+      "nombre": "Doble Garra",
+      "categoria": "Garras y peluches",
+      "precio": 29000,
+      "descripcion": "Luces LED\nBotones luminosos\nDoble monedero\nDoble garra",
+      "garantia": "",
+      "foto": "img/productos/doble-garra.webp",
+      "disponible": true
+    },
+    {
+      "nombre": "Space Crane",
+      "categoria": "Garras y peluches",
+      "precio": 26000,
+      "descripcion": "Luz LED\nMúsica\nGarra mediana",
+      "garantia": "",
+      "foto": "img/productos/space-crane.webp",
+      "disponible": true
+    },
+    {
+      "nombre": "Speed Doll",
+      "categoria": "Garras y peluches",
+      "precio": 27000,
+      "descripcion": "Luz LED\nBotón luminoso\nPeluche mediano\nMúsica",
+      "garantia": "",
+      "foto": "img/productos/speed-doll.webp",
+      "disponible": true
+    },
+    {
+      "nombre": "Castillo Cristal",
+      "categoria": "Garras y peluches",
+      "precio": 38000,
+      "descripcion": "Luces LED\nBotones luminosos\nPeluche grande",
+      "garantia": "",
+      "foto": "img/productos/castillo-cristal.webp",
+      "disponible": true
+    },
+    {
+      "nombre": "Pinball 7 y 8 pelotas de rodillo",
+      "categoria": "Pinballs",
+      "precio": 38500,
+      "descripcion": "Luces LED\nCopete bonus",
+      "garantia": "1 año de garantía",
+      "foto": "img/productos/pinball-7-y-8-pelotas-de-rodillo.webp",
+      "disponible": true
+    },
+    {
+      "nombre": "Pinball 5x5",
+      "categoria": "Pinballs",
+      "precio": 32000,
+      "descripcion": "Luces LED\nCopete con luz tipo neón",
+      "garantia": "",
+      "foto": "img/productos/pinball-5x5.webp",
+      "disponible": true
+    },
+    {
+      "nombre": "Pinball 7x7",
+      "categoria": "Pinballs",
+      "precio": 36000,
+      "descripcion": "Luces LED\nTriplay\nBola bonus",
+      "garantia": "",
+      "foto": "img/productos/pinball-7x7.webp",
+      "disponible": true
+    },
+    {
+      "nombre": "Tesoro Azteca",
+      "categoria": "Pinballs",
+      "precio": 46000,
+      "descripcion": "Luces LED\nTriplay\nBola bonus",
+      "garantia": "",
+      "foto": "img/productos/tesoro-azteca.webp",
+      "disponible": true
+    },
+    {
+      "nombre": "Rey del Póker",
+      "categoria": "Pinballs",
+      "precio": 47000,
+      "descripcion": "Luces LED\nTriplay\nBola bonus",
+      "garantia": "",
+      "foto": "img/productos/rey-del-poker.webp",
+      "disponible": true
+    },
+    {
+      "nombre": "Chiclera Sencilla",
+      "categoria": "Chicleras",
+      "precio": 3500,
+      "descripcion": "Monedas de 5 o 10 pesos\nPremios de 27 o 32 mm\nCon base\nEl producto se vende aparte",
+      "garantia": "",
+      "foto": "img/productos/chiclera-sencilla.webp",
+      "disponible": true
+    },
+    {
+      "nombre": "Chiclera Grande",
+      "categoria": "Chicleras",
+      "precio": 10000,
+      "descripcion": "Varios colores\nMonedero de 10 a 20 pesos\nPremios de 1 o 2 pulgadas",
+      "garantia": "",
+      "foto": "img/productos/chiclera-grande.webp",
+      "disponible": true
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+media:
+  input: img/productos
+  output: img/productos
+content:
+  - name: catalogo
+    label: Catálogo
+    type: file
+    path: data/catalogo.json
+    fields:
+      - name: productos
+        label: Productos
+        type: object
+        list: true
+        fields:
+          - { name: nombre, label: Nombre, type: string, required: true }
+          - name: categoria
+            label: Categoría
+            type: select
+            options:
+              values: [Tragamonedas, Garras y peluches, Pinballs, Videojuegos, Chicleras, Rockolas, Insumos]
+          - { name: precio, label: Precio en pesos, type: number }
+          - { name: descripcion, label: "Descripción (una característica por renglón)", type: text }
+          - { name: garantia, label: "Garantía (ej. 1 año de garantía)", type: string }
+          - { name: foto, label: Foto, type: image }
+          - { name: disponible, label: Mostrar en la página, type: boolean, default: true }
