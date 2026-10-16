@@ -64,6 +64,17 @@
       "disponible": true
     },
     {
+      "nombre": "Máquina de Animales",
+      "categoria": "Tragamonedas",
+      "precio": 4800,
+      "descripcion": "Luces LED\nMonedero\nFácil de instalar",
+      "garantia": "",
+      "foto": "img/productos/maquina-de-animales.webp",
+      "disponible": true,
+      "oferta_precio": 4500,
+      "oferta_texto": "Precio de introducción"
+    },
+    {
       "nombre": "Mini Genie",
       "categoria": "Tragamonedas",
       "precio": 10000,
@@ -100,6 +111,15 @@
       "disponible": true
     },
     {
+      "nombre": "Arcade 30 en 1",
+      "categoria": "Videojuegos",
+      "precio": 12500,
+      "descripcion": "30 juegos en 1\nPara 2 jugadores\nLuces LED",
+      "garantia": "1 año de garantía",
+      "foto": "img/productos/arcade-30-en-1.webp",
+      "disponible": true
+    },
+    {
       "nombre": "Pandora 32 pulgadas",
       "categoria": "Videojuegos",
       "precio": 13500,
@@ -124,7 +144,20 @@
       "descripcion": "Luz LED\nCon base\nPrimera ronda de peluches gratis",
       "garantia": "",
       "foto": "img/productos/mini-peluchera.webp",
-      "disponible": true
+      "disponible": true,
+      "oferta_precio": 8300,
+      "oferta_texto": "Precio con base"
+    },
+    {
+      "nombre": "Mini Peluchera sin base",
+      "categoria": "Garras y peluches",
+      "precio": 9000,
+      "descripcion": "Luz LED\nSin base\nPrimera ronda de peluches gratis",
+      "garantia": "",
+      "foto": "img/productos/mini-peluchera.webp",
+      "disponible": true,
+      "oferta_precio": 7500,
+      "oferta_texto": "Precio sin base"
     },
     {
       "nombre": "Magic Clip",

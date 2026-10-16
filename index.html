@@ -125,6 +125,14 @@ section { padding-block: clamp(56px, 9vw, 96px); }
 .feed-ph { display: grid; place-items: center; text-align: center; gap: 12px; padding: 28px; color: var(--muted);
   background: repeating-linear-gradient(135deg, rgba(185,139,255,.06) 0 12px, transparent 12px 24px); }
 .feed-ph > div { display: grid; gap: 12px; justify-items: center; max-width: 34ch; }
+.ofertas { background: radial-gradient(900px 420px at 85% 0%, rgba(255,77,109,.16), transparent 60%), radial-gradient(800px 380px at 0% 100%, rgba(255,204,77,.10), transparent 60%); border-bottom: 1px solid var(--line); }
+.ofertas .eyebrow { color: var(--hot); text-shadow: 0 0 14px rgba(255,77,109,.55); }
+.prod.on-sale { border-color: rgba(255,77,109,.55); box-shadow: 0 0 0 1px rgba(255,77,109,.18), 0 14px 40px -20px rgba(255,77,109,.6); }
+.prod .pic { position: relative; }
+.sale-tag { position: absolute; top: 12px; left: 12px; z-index: 1; background: var(--hot); color: #fff; font-family: var(--f-display); font-size: 1rem; line-height: 1; padding: 7px 10px; border-radius: 10px; transform: rotate(-4deg); box-shadow: 0 6px 18px -6px rgba(255,77,109,.8); }
+.price-old { display: block; font-family: var(--f-body); font-size: .9rem; color: var(--muted); text-decoration: line-through; font-weight: 500; }
+.prod.on-sale .price { color: var(--hot); }
+.sale-note { font-size: .82rem; font-weight: 700; color: var(--gold); }
 /* servicios */
 .svc { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 0; border-top: 1px solid var(--line); }
 .svc div { display: grid; grid-template-columns: 44px 1fr; gap: 4px 16px; padding: 22px 4px; border-bottom: 1px solid var(--line); }
@@ -265,6 +273,7 @@ body.locked { overflow: hidden; }
     <nav aria-label="Secciones">
       <a href="#resenas">Recomendaciones</a>
       <a href="#ubicacion">Ubicación</a>
+      <a href="#ofertas" id="navOfertas" hidden>Ofertas</a>
       <a href="#productos">Catálogo</a>
       <a href="#envivo">En vivo</a>
     </nav>
@@ -293,6 +302,17 @@ body.locked { overflow: hidden; }
         <a class="btn btn-wa" href="https://wa.me/529514002137?text=Hola%20Rockoparty%2C%20quiero%20cotizar" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Cotiza por WhatsApp</a>
         <a class="btn btn-ghost" href="#productos">Ver catálogo</a>
       </div>
+    </div>
+  </section>
+
+  <section id="ofertas" class="ofertas" hidden>
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">ofertas</span>
+        <h2>Precios especiales</h2>
+        <p class="lede">Aprovecha estas máquinas con descuento mientras haya existencia.</p>
+      </div>
+      <div class="pgrid" id="ofertasGrid"></div>
     </div>
   </section>
 
@@ -451,27 +471,35 @@ const CATS = ["Todas", "Tragamonedas", "Garras y peluches", "Pinballs", "Videoju
 const pf = document.getElementById("pfilters"), pg = document.getElementById("prods");
 const money = n => Number(n).toLocaleString("es-MX");
 let CAT_LIST = [];
+const enOferta = p => Number(p.oferta_precio) > 0 && Number(p.oferta_precio) < Number(p.precio);
+const precioFinal = p => enOferta(p) ? Number(p.oferta_precio) : Number(p.precio) || 0;
+function cardHTML(p) {
+  const feats = String(p.descripcion || "").split(/\n+/).map(t => t.trim()).filter(Boolean);
+  const sale = enOferta(p), pct = sale ? Math.round((1 - p.oferta_precio / p.precio) * 100) : 0;
+  const msg = encodeURIComponent(`Hola Rockoparty, me interesa la máquina ${p.nombre} ($${money(precioFinal(p))}${sale ? ", en oferta" : ""})`);
+  return `<article class="prod${sale ? " on-sale" : ""}" data-c="${esc(p.categoria || "")}">
+    <div class="pic">${sale ? `<span class="sale-tag">-${pct}%</span>` : ""}${p.foto ? `<img src="${esc(p.foto)}" alt="Máquina ${esc(p.nombre)}" decoding="async">` : ""}</div>
+    <div class="body">
+      <span class="cat-tag">${esc(p.categoria || "")}</span>
+      <h3>${esc(p.nombre)}</h3>
+      ${p.precio ? `<div class="price">${sale ? `<span class="price-old">Antes $${money(p.precio)}</span>` : ""}$${money(precioFinal(p))} <small>MXN</small></div>` : ""}
+      ${sale && p.oferta_texto ? `<span class="sale-note">${esc(p.oferta_texto)}</span>` : ""}
+      <ul>${feats.map(f => `<li>${esc(f)}</li>`).join("")}</ul>
+      <div class="foot">${p.garantia ? `<span class="warr">${esc(p.garantia)}</span>` : "<span></span>"}<a class="ask" href="https://wa.me/529514002137?text=${msg}" target="_blank" rel="noopener">Pedir info →</a></div>
+      ${p.precio ? `<button class="btn btn-add" type="button" data-add="${esc(p.nombre)}"><svg><use href="#i-cart"/></svg>Agregar a la canasta</button>` : ""}
+    </div>
+  </article>`;
+}
 function renderCatalog(list) {
   list = list.filter(p => p.disponible !== false);
   CAT_LIST = list;
   const cats = CATS.filter((c, i) => i === 0 || list.some(p => p.categoria === c));
   list.forEach(p => { if (p.categoria && !cats.includes(p.categoria)) cats.push(p.categoria); });
   pf.innerHTML = cats.map((c, i) => `<button class="chip" id="pc-${i}" data-c="${esc(c)}" aria-pressed="${i === 0}">${esc(c)}${i ? ` <span style="opacity:.6">${list.filter(p => p.categoria === c).length}</span>` : ""}</button>`).join("");
-  pg.innerHTML = list.map(p => {
-    const feats = String(p.descripcion || "").split(/\n+/).map(t => t.trim()).filter(Boolean);
-    const msg = encodeURIComponent(`Hola Rockoparty, me interesa la máquina ${p.nombre} ($${money(p.precio)})`);
-    return `<article class="prod" data-c="${esc(p.categoria || "")}">
-    <div class="pic">${p.foto ? `<img src="${esc(p.foto)}" alt="Máquina ${esc(p.nombre)}" decoding="async">` : ""}</div>
-    <div class="body">
-      <span class="cat-tag">${esc(p.categoria || "")}</span>
-      <h3>${esc(p.nombre)}</h3>
-      ${p.precio ? `<div class="price">$${money(p.precio)} <small>MXN</small></div>` : ""}
-      <ul>${feats.map(f => `<li>${esc(f)}</li>`).join("")}</ul>
-      <div class="foot">${p.garantia ? `<span class="warr">${esc(p.garantia)}</span>` : "<span></span>"}<a class="ask" href="https://wa.me/529514002137?text=${msg}" target="_blank" rel="noopener">Pedir info →</a></div>
-      ${p.precio ? `<button class="btn btn-add" type="button" data-add="${esc(p.nombre)}"><svg><use href="#i-cart"/></svg>Agregar a la canasta</button>` : ""}
-    </div>
-  </article>`;
-  }).join("");
+  pg.innerHTML = list.map(cardHTML).join("");
+  const sale = list.filter(enOferta);
+  document.getElementById("ofertasGrid").innerHTML = sale.map(cardHTML).join("");
+  document.getElementById("ofertas").hidden = document.getElementById("navOfertas").hidden = !sale.length;
 }
 pf.addEventListener("click", e => {
   const b = e.target.closest(".chip"); if (!b) return;
@@ -543,12 +571,12 @@ document.getElementById("cartOpen").addEventListener("click", openCart);
 document.getElementById("cartClose").addEventListener("click", closeCart);
 scrim.addEventListener("click", closeCart);
 document.addEventListener("keydown", e => { if (e.key === "Escape" && !cartEl.hidden) closeCart(); });
-pg.addEventListener("click", e => {
+document.addEventListener("click", e => {
   const b = e.target.closest("[data-add]"); if (!b) return;
   if (b.classList.contains("added")) { openCart(); return; }
   const p = findP(b.dataset.add); if (!p) return;
   const c = cart.find(x => x.nombre === p.nombre);
-  if (c) c.qty++; else cart.push({ nombre: p.nombre, precio: Number(p.precio) || 0, foto: p.foto || "", qty: 1 });
+  if (c) c.qty++; else cart.push({ nombre: p.nombre, precio: precioFinal(p), foto: p.foto || "", qty: 1 });
   save(); syncCount();
   b.classList.add("added"); b.lastChild.textContent = "Agregada ✓ Ver canasta";
 });

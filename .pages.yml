@@ -20,6 +20,8 @@ content:
               values: [Tragamonedas, Garras y peluches, Pinballs, Videojuegos, Chicleras, Rockolas, Insumos]
           - { name: precio, label: Precio en pesos, type: number }
           - { name: descripcion, label: "Descripción (una característica por renglón)", type: text }
+          - { name: oferta_precio, label: "Precio de oferta (déjalo vacío si no está en oferta)", type: number }
+          - { name: oferta_texto, label: "Texto de la oferta (opcional, ej. Solo este mes)", type: string }
           - { name: garantia, label: "Garantía (ej. 1 año de garantía)", type: string }
           - { name: foto, label: Foto, type: image }
           - { name: disponible, label: Mostrar en la página, type: boolean, default: true }
